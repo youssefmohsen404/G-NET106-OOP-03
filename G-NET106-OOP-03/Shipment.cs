@@ -9,8 +9,10 @@ namespace G_NET106_OOP_02.part2
 
         public DeliveryAddress destination { get; set; }
 
+        
 
         private string _trackingCode;
+
 
         public string TrackingCode
         {
@@ -66,7 +68,7 @@ namespace G_NET106_OOP_02.part2
         }
 
 
-
+        //assignment 3 making f virtual
         public virtual decimal EstimatedCost
         {
 
@@ -109,9 +111,31 @@ namespace G_NET106_OOP_02.part2
                 Console.WriteLine("invalid delivery fee");
             }
         }
-        public void PrintShipment()
+        //assignment 3 virtual f
+        public virtual void PrintShipment()
         {
             Console.WriteLine($"tracking code is:{TrackingCode} \n describtion is : {Describtion} \n weight :{Weight} \n delivery fee:{DeliveryFee} \n destination: {destination}");
+        }
+        //assignment 3 overloading
+        public void UpdateWeight(decimal newWeight)
+        {
+            if (newWeight > 0) {
+                   Weight = newWeight;
+                Console.WriteLine($"weight updated to {Weight}");
+            }
+            else {
+                Console.WriteLine("invalid weight");
+
+            }
+        }
+        public void UpdateWeight(decimal newWeight ,decimal packWeight )
+        {
+            if (newWeight > 0 && packWeight > 0) {
+                Weight = newWeight + packWeight;
+                Console.WriteLine($"shipment weight is {Weight}");
+            }
+            else { Console.WriteLine("invalid weight"); }
+            
         }
         public override string ToString()
         {

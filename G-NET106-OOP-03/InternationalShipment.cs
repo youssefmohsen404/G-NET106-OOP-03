@@ -30,7 +30,8 @@ namespace G_NET106_OOP_02.part2
                 _customsFees = value;
             }
         }
-
+        
+        //assignment 3 override
         public override decimal EstimatedCost
         {
             get
@@ -47,10 +48,22 @@ namespace G_NET106_OOP_02.part2
 
 
         }
+        //assignment 3 override
         public override string ToString()
         {
             return base.ToString() +  $"\n destination country:{DestinationCountry} \n  custom fees{CustomsFees}";
         }
+        public override void PrintShipment()
+        {
+            Console.WriteLine($"tracking code is:{TrackingCode} \n describtion is : {Describtion} \n weight :{Weight} \n delivery fee:{DeliveryFee} \n destination: {destination}\n custome fees: {CustomsFees}\n destination country:{DestinationCountry}");
 
+        }
+
+        public virtual void GenerateCustomReport()
+        {
+
+            Console.WriteLine($"Customs Report for {TrackingCode} , Destination: {DestinationCountry}");
+
+        }
     }
 }

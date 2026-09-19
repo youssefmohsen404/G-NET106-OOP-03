@@ -1,4 +1,5 @@
-﻿using System;
+﻿using G_NET106_OOP_03;
+using System;
 using System.Collections.Generic;
 using System.Reflection.PortableExecutable;
 using System.Text;
@@ -11,10 +12,13 @@ namespace G_NET106_OOP_02.part2
 
         private Shipment[] shipment;
         public string centerName { get; set; }
+        public Driver driver { get; set; }
+
         public int size { get; set; }
         public DeliveryCenter(int size )
         {
             shipment = new Shipment[size];
+            
             
         }
 
@@ -97,13 +101,15 @@ namespace G_NET106_OOP_02.part2
         }
         public void PrintAllShipments()
         {
-            /*   foreach(Shipment s in shipment)
-               {
-                   Console.WriteLine(s);
-               }*/
-            for (int i = 0; i < shipment.Length; i++) {
-                Console.WriteLine(shipment[i]);
+            foreach (Shipment s in shipment)
+            {
+                s.PrintShipment();
             }
+            /* for (int i = 0; i < shipment.Length; i++)
+             {
+                 Console.WriteLine(shipment[i].PrintShipment);
+             }*/
+
         }
 
 
